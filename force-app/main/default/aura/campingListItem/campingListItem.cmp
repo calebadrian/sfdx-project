@@ -5,4 +5,4 @@
     <lightning:formattedNumber value="{!v.item.Quantity__c}" />
     <lightning:input type="toggle" checked="{!v.item.Packed__c}" />
     <lightning:button label="Packed!" onclick="{!c.packItem}" />
-</aura:component>	
+</aura:component>

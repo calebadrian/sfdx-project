@@ -20,7 +20,6 @@ public class BillingCalloutService implements Database.AllowsCallouts{
                 String response = bspCall.billProject(temp);
                 if (response == 'OK'){
                     proj.Status__c = 'Billed';
-                    update proj;
                 }
             }
         }
