@@ -45,8 +45,14 @@
             "c/list": [
                 "list/list.js"
             ],
+            "c/lwcHello": [
+                "lwcHello/lwcHello.js"
+            ],
             "c/myFirstWebComponent": [
                 "myFirstWebComponent/myFirstWebComponent.js"
+            ],
+            "c/newComponent": [
+                "newComponent/newComponent.js"
             ],
             "c/orderBuilder": [
                 "orderBuilder/orderBuilder.js"
@@ -86,12 +92,6 @@
             ],
             "c/tile": [
                 "tile/tile.js"
-            ],
-            "c/lwcHello": [
-                "lwcHello/lwcHello.js"
-            ],
-            "c/newComponent": [
-                "newComponent/newComponent.js"
             ]
         }
     },
