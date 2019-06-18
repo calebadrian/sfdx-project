@@ -1,6 +1,12 @@
 ({
-    myAction : function(component, event, helper) {
-
+    doInit : function(component, event, helper) {
+        var action = component.get('c.getItems');
+        action.setCallback(this, function(response){
+            if (response.getState() === 'SUCCESS'){
+                component.set('v.items', reponse.getReturnValue());
+            }
+        })
+        $A.enqueueAction(action);
     },
     clickCreateItem : function(component, event, helper){
         var validItem = component.find('itemform').reduce(function(validSoFar, inputCmp){
@@ -8,9 +14,7 @@
             return validSoFar && inputCmp.get('v.validity').valid;
         })
         if (validItem){
-            var items = component.get('v.items');
-            items.push(component.get('v.newItem'));
-            component.set('v.items', items);
+            helper.createItem(component, event);
             component.set('v.newItem', {'sobjectType' : 'Camping_Item__c',
             'Name': '', 'Price__c': 0, 'Quantity__c': 0, 'Packed__c': false});
         }
