@@ -1,0 +1,10 @@
+<aura:component>
+    <aura:registerEvent name="addItem" type="c:addItemEvent" />
+    <form class="slds-form--stacked">
+        <lightning:input aura:id="itemform" value="{!v.newItem.Name}" />
+        <lightning:input aura:id="itemform" type="number" value="{!v.newItem.Quantity__c}" min="1"/>
+        <lightning:input aura:id="itemform" type="number" formatter="currency" value="{!v.newItem.Price__c}" />
+        <lightning:input aura:id="itemform" type="checkbox" checked="{!v.newItem.Packed__c}" />
+        <lightning:button label="Submit Form" variant="brand" onclick="{!c.clickCreateItem}" />
+    </form>
+</aura:component>	
