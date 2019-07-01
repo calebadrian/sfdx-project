@@ -7,4 +7,4 @@
         <lightning:input aura:id="itemform" type="checkbox" checked="{!v.newItem.Packed__c}" />
         <lightning:button label="Submit Form" variant="brand" onclick="{!c.clickCreateItem}" />
     </form>
-</aura:component>	
+</aura:component>
