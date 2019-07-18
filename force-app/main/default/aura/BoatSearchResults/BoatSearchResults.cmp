@@ -1,3 +1,17 @@
-<aura:component>
-
+<aura:component controller="BoatSearchResults">
+<aura:attribute name="boats" type="Boat__c[]" default="[]" />
+    <lightning:layout multipleRows="true">
+        <aura:if isTrue="{!v.boats.length > 0}">
+            <aura:iteration items="{!v.boats}" var="boat">
+                <lightning:layoutItem>
+                    <c:BoatTile boat="{!v.boat}" />
+                </lightning:layoutItem>
+            </aura:iteration>
+            <aura:set attribute="else">
+                <div class="slds-align_absolute-center">
+                    No boats found
+                </div>
+            </aura:set>
+        </aura:if>
+    </lightning:layout>
 </aura:component>

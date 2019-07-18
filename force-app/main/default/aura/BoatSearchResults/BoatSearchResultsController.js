@@ -1,5 +1,5 @@
 ({
-    myAction : function(component, event, helper) {
-
-    }
+    onSearch: function(component, event, helper){
+        helper.onSearch(component);
+    },
 })
