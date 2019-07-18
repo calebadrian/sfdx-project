@@ -1,0 +1,23 @@
+<aura:component controller="BoatSearchFormController">
+<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+<aura:attribute name="boatTypes" type="BoatType__c[]" default="[]" />
+<aura:attribute name="createEnabled" type="Boolean" default="true" />
+    <lightning:layout horizontalAlign="center">
+        <lightning:layoutItem>
+            <lightning:select name="select">
+                <option value="">All Types</option>
+                <aura:iteration items="{!v.boatTypes}" var="boat">
+                    <option value="{!boat.Name}" text="{!boat.Name}"></option>
+                </aura:iteration>
+            </lightning:select>
+        </lightning:layoutItem>
+        <lightning:layoutItem>
+            <lightning:button label="Search" variant="brand" />
+        </lightning:layoutItem>
+        <lightning:layoutItem>
+            <aura:if isTrue="{!v.createEnabled}">
+                <lightning:button label="New" onclick="{!c.newBoatType}" />
+            </aura:if>
+        </lightning:layoutItem>
+    </lightning:layout>
+</aura:component>
