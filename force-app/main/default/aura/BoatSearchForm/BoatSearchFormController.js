@@ -13,5 +13,14 @@
             }
         });
         createBoatEvent.fire();
+    },
+    onFormSubmit: function(component, event, helper){
+        var appEvent = component.getEvent("formSubmit");
+        appEvent.setParams({
+            formData: {
+                boatTypeId: formData.boatTypeId
+            }
+        })
+        appEvent.fire();
     }
 })

@@ -1,7 +1,8 @@
 <aura:component controller="BoatSearchFormController">
-<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
 <aura:attribute name="boatTypes" type="BoatType__c[]" default="[]" />
 <aura:attribute name="createEnabled" type="Boolean" default="true" />
+<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+<aura:registerEvent name="formSubmit" type="c:FormSubmit" />
     <lightning:layout horizontalAlign="center">
         <lightning:layoutItem>
             <lightning:select name="select">
@@ -12,7 +13,7 @@
             </lightning:select>
         </lightning:layoutItem>
         <lightning:layoutItem>
-            <lightning:button label="Search" variant="brand" />
+            <lightning:button label="Search" variant="brand" onclick="{!c.onFormSubmit}" />
         </lightning:layoutItem>
         <lightning:layoutItem>
             <aura:if isTrue="{!v.createEnabled}">
