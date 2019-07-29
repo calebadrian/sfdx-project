@@ -1,7 +1,9 @@
 <aura:component controller="BoatSearchResults">
 <aura:attribute name="boats" type="Boat__c[]" default="[]" />
 <aura:attribute name="boatTypeId" type="String" />
+<aura:attribute name="selectedBoatId" type="String" />
 <aura:handler name="formSubmit" event="c:FormSubmit" action="{!c.onFormSubmit}" />
+<aura:handler name="onBoatSelect" event="c:BoatSelect" action="{!c.onBoatSelect}" />
 <aura:method name="search" description="takes boatTypeId and searches">
     <aura:attribute name="boatTypeId" type="String" />
 </aura:method>
@@ -9,7 +11,7 @@
         <aura:if isTrue="{!v.boats.length > 0}">
             <aura:iteration items="{!v.boats}" var="boat">
                 <lightning:layoutItem>
-                    <c:BoatTile boat="{!v.boat}" />
+                    <c:BoatTile boat="{!boat}" selected="{!boat.Id == v.selectedBoatId ? true : false}" />
                 </lightning:layoutItem>
             </aura:iteration>
             <aura:set attribute="else">
