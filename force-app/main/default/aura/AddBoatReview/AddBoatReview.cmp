@@ -1,0 +1,22 @@
+<aura:component implements="flexipage:availableForAllPageTypes">
+<aura:attribute name="boat" type="Boat__c" />
+<aura:attribute name="boatReview" type="BoatReview__c" />
+<aura:attribute name="recordError" access="private" type="String" />
+<aura:handler name="init" action="{!c.doInit}" value="{!this}" />
+<aura:registerEvent name="boatReviewAdded" type="c:BoatReviewAdded" />
+<force:recordData aura:id="service" fields="Id,Name,Comment__c,Rating__c,Boat__c" targetError="{!v.recordError}" targetFields="{!v.boatReview}" recordUpdated="{!c.onRecordUpdated}" />
+    <lightning:layout multipleRows="true">
+        <lightning:layoutItem>
+            <lightning:input name="title" label="Title" value="{!v.boatReview.Name}" />
+        </lightning:layoutItem>
+        <lightning:layoutItem>
+            <lightning:inputRichText value="{!v.boatReview.Comment__c}" disabledCategories="FORMAT_FONT" />
+        </lightning:layoutItem>
+        <lightning:layoutItem>
+            <lightning:input name="rating" label="Rating" value="{!v.boatReview.Rating__c}" />
+        </lightning:layoutItem>
+        <lightning:layoutItem>
+            <lightning:button iconName="utility:save" label="Submit" onclick="{!c.onSave}" />
+        </lightning:layoutItem>
+    </lightning:layout>
+</aura:component>	
