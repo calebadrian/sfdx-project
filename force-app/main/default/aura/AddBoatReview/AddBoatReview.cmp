@@ -13,7 +13,7 @@
             <lightning:inputRichText value="{!v.boatReview.Comment__c}" disabledCategories="FORMAT_FONT" />
         </lightning:layoutItem>
         <lightning:layoutItem>
-            <lightning:input name="rating" label="Rating" value="{!v.boatReview.Rating__c}" />
+            <c:FiveStarRating value="{!v.boatReview.Rating__c}" />
         </lightning:layoutItem>
         <lightning:layoutItem>
             <lightning:button iconName="utility:save" label="Submit" onclick="{!c.onSave}" />

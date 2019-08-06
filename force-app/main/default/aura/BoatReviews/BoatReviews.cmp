@@ -36,6 +36,9 @@
                             <ui:outputText value="{!boatReview.Name}" />
                             <ui:outputRichText class="slds-text-longform" value="{!boatReview.Comment__c}" />
                         </div>
+                        <footer class="slds-post__footer">
+                            <c:FiveStarRating value="{!boatReview.Rating__c}" readonly="true" />
+                        </footer>
                     </li>
                 </aura:iteration>
             </ul>
