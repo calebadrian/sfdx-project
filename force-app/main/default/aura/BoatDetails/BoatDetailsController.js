@@ -11,5 +11,6 @@
     },
     onBoatReviewAdded: function(component, event, helper){
         component.set("v.selectedTabId", "boatreviewtab");
+        component.find('boatReviews').refresh();
     }
 })
